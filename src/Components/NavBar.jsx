@@ -10,7 +10,7 @@ export default function NavBar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#/">Bad Bank</Nav.Link>
+          <Nav.Link href="/">Bad Bank</Nav.Link>
           <Nav.Link href="#/createaccount">Create Account</Nav.Link>
           <Nav.Link href="#/login">Login</Nav.Link>
           <Nav.Link href="#/deposit">Deposit</Nav.Link>

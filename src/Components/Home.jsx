@@ -1,6 +1,9 @@
 // defines the Home page of our application
-export default function Home() {
+
+function Home() {
   return (
     <div>Home</div>
   );
 }
+
+export default Home;
