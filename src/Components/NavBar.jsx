@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 
 export default function NavBar() {
   return (
-    <Navbar bg="dark" variant="dark" expand="sm">
+    <Navbar className="mb-5" bg="dark" variant="dark" expand="sm">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
@@ -15,7 +15,6 @@ export default function NavBar() {
           <Nav.Link href="#/login">Login</Nav.Link>
           <Nav.Link href="#/deposit">Deposit</Nav.Link>
           <Nav.Link href="#/withdraw">Withdraw</Nav.Link>
-          <Nav.Link href="#/balance">Balance</Nav.Link>
           <Nav.Link href="#/alldata">All Data</Nav.Link>
         </Nav>
       </Navbar.Collapse>

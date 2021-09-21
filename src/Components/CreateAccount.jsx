@@ -3,20 +3,35 @@
 // import the necessary Bootstrap components
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 
-export default function CreateAccount() {
+function CreateAccount() {
   return (
     <Card>
-      <h1>Create Account</h1>
-      <form name="CreateAccount">
-        <label for="name">Name:</label>
-        <input type="text" id="name"></input>
-        <label for="email">Email:</label>
-        <input type="text" id="email"></input>
-        <label for="password">Password:</label>
-        <input type="password" id="password"></input>
-        <Button type="submit">Create</Button>
-      </form>
+      <Card.Header>Create Account</Card.Header>
+      <Card.Body>
+        <Form>
+          <Form.Group className="mb-3" controlId="formName">
+            <FloatingLabel controlId="name" label="Name">
+              <Form.Control type="text" placeholder="Name" />
+            </FloatingLabel>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formEmail">
+            <FloatingLabel controlId="email" label="Email">
+              <Form.Control type="email" placeholder="Email" />
+            </FloatingLabel>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formPassword">
+            <FloatingLabel controlId="password" label="Password">
+              <Form.Control type="password" placeholder="Password" />
+            </FloatingLabel>
+          </Form.Group>
+          <Button type="submit">Create</Button>
+        </Form>
+      </Card.Body>
     </Card>
   );
 }
+
+export default CreateAccount;
