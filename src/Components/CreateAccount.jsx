@@ -4,16 +4,18 @@
 import { useState, useContext } from "react";
 
 // import the necessary Bootstrap components
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Alert from "react-bootstrap/Alert";
 
+// import our page card container
+import PageCard from "./PageCard";
+
 // grab our UserContext
 import { UserContext } from "../App";
 
-function CreateAccount() {
+function CreateAccount({ addUser }) {
   // create our React state variables
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -71,14 +73,7 @@ function CreateAccount() {
     }
 
     // otherwise now we're good to go, let's add a new user to our users array
-    userContext.users = [
-      ...userContext.users,
-      {
-        name,
-        email,
-        password,
-      },
-    ];
+    addUser(name, email, password);
 
     // mark the form as successfully submitted
     setIsSubmitted(true);
@@ -94,67 +89,64 @@ function CreateAccount() {
   };
 
   return (
-    <Card>
-      <Card.Header>Create Account</Card.Header>
-      <Card.Body>
-        {!isSubmitted && (
-          <>
-            {error != "" && <Alert variant="danger">{error}</Alert>}
-            <Form validated={validated}>
-              <Form.Group className="mb-3" controlId="formName">
-                <FloatingLabel controlId="name" label="Name">
-                  <Form.Control
-                    type="text"
-                    placeholder="Name"
-                    required
-                    onChange={handleNameChange}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Name must not be blank
-                  </Form.Control.Feedback>
-                </FloatingLabel>
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formEmail">
-                <FloatingLabel controlId="email" label="Email">
-                  <Form.Control
-                    type="email"
-                    placeholder="Email"
-                    required
-                    onChange={handleEmailChange}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please enter a valid email address
-                  </Form.Control.Feedback>
-                </FloatingLabel>
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formPassword">
-                <FloatingLabel controlId="password" label="Password">
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    minLength={8}
-                    required
-                    onChange={handlePasswordChange}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Passwords must be at least 8 characters
-                  </Form.Control.Feedback>
-                </FloatingLabel>
-              </Form.Group>
-              <Button type="submit" disabled={isFormEmpty()} onClick={onSubmit}>
-                Create
-              </Button>
-            </Form>
-          </>
-        )}
-        {isSubmitted && (
-          <>
-            <Alert variant="success">{`Congrats! A new account was created for ${email}`}</Alert>
-            <Button onClick={clearForm}>Create Another Account</Button>
-          </>
-        )}
-      </Card.Body>
-    </Card>
+    <PageCard header="Create Account">
+      {!isSubmitted && (
+        <>
+          {error != "" && <Alert variant="danger">{error}</Alert>}
+          <Form validated={validated}>
+            <Form.Group className="mb-3" controlId="formName">
+              <FloatingLabel controlId="name" label="Name">
+                <Form.Control
+                  type="text"
+                  placeholder="Name"
+                  required
+                  onChange={handleNameChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Name must not be blank
+                </Form.Control.Feedback>
+              </FloatingLabel>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formEmail">
+              <FloatingLabel controlId="email" label="Email">
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  required
+                  onChange={handleEmailChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter a valid email address
+                </Form.Control.Feedback>
+              </FloatingLabel>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formPassword">
+              <FloatingLabel controlId="password" label="Password">
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  minLength={8}
+                  required
+                  onChange={handlePasswordChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Passwords must be at least 8 characters
+                </Form.Control.Feedback>
+              </FloatingLabel>
+            </Form.Group>
+            <Button type="submit" disabled={isFormEmpty()} onClick={onSubmit}>
+              Create
+            </Button>
+          </Form>
+        </>
+      )}
+      {isSubmitted && (
+        <>
+          <Alert variant="success">{`Congrats! A new account was created for ${email}`}</Alert>
+          <Button onClick={clearForm}>Create Another Account</Button>
+        </>
+      )}
+    </PageCard>
   );
 }
 
