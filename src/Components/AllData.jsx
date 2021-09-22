@@ -5,7 +5,6 @@ import { useContext } from "react";
 
 // React Bootstrap components
 import Table from "react-bootstrap/Table";
-import Accordion from "react-bootstrap/Accordion";
 
 // page container
 import PageCard from "./PageCard";
@@ -47,7 +46,7 @@ function AllData() {
       <Table bordered>
         <thead>
           <tr>
-            <th colspan={4}>All Users</th>
+            <th colSpan={4}>All Users</th>
           </tr>
           <tr>
             <th>Name</th>

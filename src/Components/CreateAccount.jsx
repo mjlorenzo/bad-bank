@@ -93,8 +93,8 @@ function CreateAccount({ addUser }) {
       {!isSubmitted && (
         <>
           {error != "" && <Alert variant="danger">{error}</Alert>}
-          <Form validated={validated}>
-            <Form.Group className="mb-3" controlId="formName">
+          <Form noValidate validated={validated} onSubmit={onSubmit}>
+            <Form.Group className="mb-3" controlId="name">
               <FloatingLabel controlId="name" label="Name">
                 <Form.Control
                   type="text"
@@ -107,7 +107,7 @@ function CreateAccount({ addUser }) {
                 </Form.Control.Feedback>
               </FloatingLabel>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formEmail">
+            <Form.Group className="mb-3" controlId="email">
               <FloatingLabel controlId="email" label="Email">
                 <Form.Control
                   type="email"
@@ -120,7 +120,7 @@ function CreateAccount({ addUser }) {
                 </Form.Control.Feedback>
               </FloatingLabel>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formPassword">
+            <Form.Group className="mb-3" controlId="password">
               <FloatingLabel controlId="password" label="Password">
                 <Form.Control
                   type="password"
@@ -134,7 +134,7 @@ function CreateAccount({ addUser }) {
                 </Form.Control.Feedback>
               </FloatingLabel>
             </Form.Group>
-            <Button type="submit" disabled={isFormEmpty()} onClick={onSubmit}>
+            <Button type="submit" disabled={isFormEmpty()}>
               Create
             </Button>
           </Form>
