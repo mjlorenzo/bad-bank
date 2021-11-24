@@ -6,6 +6,10 @@ body {
   height: 100%;
 }
 
+.nav-link.active {
+  border: solid white;
+}
+
 .card {
   max-width: 800px;
   margin: 0 auto;

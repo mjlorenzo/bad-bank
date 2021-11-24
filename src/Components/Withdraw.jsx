@@ -29,7 +29,8 @@ function Withdraw({ addWithdrawal }) {
   const handleAmountChange = (e) => {
     if (submitted) setSubmitted(false);
     if (validated) setValidated(false);
-    setAmount(e.target.value);
+    if (error) setError("");
+    setAmount(Number(e.target.value));
   };
 
   // handle submit
@@ -41,11 +42,18 @@ function Withdraw({ addWithdrawal }) {
       return;
     }
 
+    setValidated(true);
+    const form = e.currentTarget;
+    if (!form.checkValidity())
+      return;
+
     currentUser.balance -= Number(amount);
     addWithdrawal(currentUser.name, currentUser.email, Number(amount));
     setAmount(0);
     setSubmitted(true);
   };
+
+  const isFormEmpty = () => !amount;
 
   return (
     <PageCard header="Withdraw">
@@ -79,7 +87,7 @@ function Withdraw({ addWithdrawal }) {
                   Please enter a valid number greater than 0
                 </Form.Control.Feedback>
               </FloatingLabel>
-              <Button className="mt-3" type="submit">
+              <Button className="mt-3" type="submit" disabled={isFormEmpty()}>
                 Withdraw
               </Button>
             </Form.Group>

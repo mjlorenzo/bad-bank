@@ -24,7 +24,7 @@ function Deposit({ addDeposit }) {
 
   // handle input change
   const handleAmountChange = (e) => {
-    setAmount(e.target.value);
+    setAmount(Number(e.target.value));
     if (submitted) setSubmitted(false);
     if (validated) setValidated(false);
   };
@@ -46,6 +46,10 @@ function Deposit({ addDeposit }) {
     addDeposit(currentUser.name, currentUser.email, Number(amount));
     setSubmitted(true);
   };
+
+  const isFormEmpty = () => {
+    return !amount;
+  }
 
   return (
     <PageCard header="Deposit">
@@ -75,7 +79,7 @@ function Deposit({ addDeposit }) {
                 </Form.Control.Feedback>
               </FloatingLabel>
             </Form.Group>
-            <Button className="mt-3" type="submit">
+            <Button className="mt-3" type="submit" disabled={isFormEmpty()}>
               Deposit
             </Button>
           </Form>

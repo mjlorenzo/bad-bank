@@ -6,7 +6,6 @@ import { useContext } from "react";
 // import the necessary components from React-Bootstrap
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 
 // context
@@ -32,8 +31,6 @@ function NavBar({ logout }) {
           <Nav.Link href="#/withdraw">Withdraw</Nav.Link>
           <Nav.Link href="#/alldata">All Data</Nav.Link>
         </Nav>
-        <span className="justify-content-end bg-light">Logged in as mjlorenzo87@gmail.com</span>
-        <Button>Logout</Button>
       </Navbar.Collapse>
     </Navbar>
   );
