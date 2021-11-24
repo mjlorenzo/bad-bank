@@ -1,3 +1,6 @@
+// import our MongoStoreProvider
+const MongoStoreProvider = require("./MongoStoreProvider");
+
 // entry point to our Express server-side application
 const express = require("express");
 const app = express();
@@ -7,15 +10,25 @@ const PORT = 3000;
 // in the "build" directory
 app.use(express.static("./build"));
 
+// define our constants for MongoDB
+const MONGO_URL = "mongodb://localhost:27017";
+const MONGO_OPTIONS = { useUnifiedTopology: true };
+
+// create a new instance of our MongoStoreProvider
+const dal = new MongoStoreProvider(MONGO_URL, MONGO_OPTIONS);
+// open connection
+dal.open();
+
 // define our API routes
 
 // API route to create a new account
 app.get("/account/create/:name/:email/:password", (req, res) => {
-  // for now, just echo back the received data
-  res.send({
-    name: req.params.name,
-    email: req.params.email,
-    password: req.params.password
+  const { name, email, password } = req.params;
+  dal.createAccount(name, email, password).then((result) => {
+    res.send(result);
+  },
+  (err) => {
+    res.status(500).send("err");
   });
 });
 
@@ -38,3 +51,6 @@ app.get("/account/all", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Express server running on port: ${PORT}`);
 });
+
+// register a callback to close the data store provider before exit
+process.on("exit", () => dal.close());
