@@ -28,7 +28,7 @@ app.get("/account/create/:name/:email/:password", (req, res) => {
     res.send(result);
   },
   (err) => {
-    res.status(500).send("err");
+    res.status(500).send(err);
   });
 });
 
@@ -43,8 +43,13 @@ app.get("/account/login/:email/:password", (req, res) => {
 
 // API route to retrieve all accounts
 app.get("/account/all", (req, res) => {
-  // just send a placeholder message
-  res.send("This route will retrieve information for all accounts");
+  // ask our data layer for all accounts
+  dal.getAllAccounts().then((result) => {
+    res.send(result);
+  },
+  (err) => {
+    res.status(500).send(err);
+  });
 })
 
 // listen on PORT, and echo to server console

@@ -60,6 +60,31 @@ class MongoStoreProvider extends DataStoreProvider {
     })
   }
 
+  // override getAllAccounts()
+  getAllAccounts() {
+    // preserve "this"
+    let that = this;
+    // return a Promise
+    return new Promise((resolve, reject) => {
+      // no connection, no bueno
+      if (!that.client)
+        reject(new Error("Client not connected"));
+      
+      // grab references to db and collection
+      let db = that.client.db(DATABASE_NAME);
+      let collection = db.collection(ACCOUNTS_COLLECTION);
+      
+      // try to retrieve the collection
+      collection.find().toArray((err, result) => {
+        // if error, reject
+        if (err)
+          reject(err);
+        
+        resolve(result);
+      });
+    });
+  }
+
   // override close()
   close() {
     // close the connection
