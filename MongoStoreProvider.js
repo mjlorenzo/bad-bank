@@ -9,6 +9,7 @@ const MongoClient = require("mongodb").MongoClient;
 // constants defining our identifiers for MongoDB
 const DATABASE_NAME = "bad-bank";
 const ACCOUNTS_COLLECTION = "accounts";
+const TRANSACTION_COLLECTION = "transactions";
 
 // concrete implementation extends the base class
 class MongoStoreProvider extends DataStoreProvider {
@@ -34,6 +35,7 @@ class MongoStoreProvider extends DataStoreProvider {
         
         // if we got here, success! store the client in our instance
         that.client = client;
+        resolve(client);
       });
     });
   }
@@ -51,7 +53,7 @@ class MongoStoreProvider extends DataStoreProvider {
       // grab references to database and collection
       let db = that.client.db(DATABASE_NAME);
       let collection = db.collection(ACCOUNTS_COLLECTION);
-      let document = { name, email, password };
+      let document = { name, email, password, balance: 0 };
 
       // attempt to insert our document
       collection.insertOne(document, { w: 1 }, (err, result) => {
@@ -84,6 +86,7 @@ class MongoStoreProvider extends DataStoreProvider {
       });
     });
   }
+
 
   // override close()
   close() {

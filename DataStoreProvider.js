@@ -7,9 +7,9 @@ class DataStoreProvider {
   createAccount() {}
   deposit() {}
   withdraw() {}
-  addTransaction() {}
   getAccount() {}
   getAllAccounts() {}
+  getAllTransactions() {}
 }
 
 module.exports = DataStoreProvider;

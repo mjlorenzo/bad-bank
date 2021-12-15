@@ -17,7 +17,12 @@ const MONGO_OPTIONS = { useUnifiedTopology: true };
 // create a new instance of our MongoStoreProvider
 const dal = new MongoStoreProvider(MONGO_URL, MONGO_OPTIONS);
 // open connection
-dal.open();
+dal.open()
+  .catch(error => {
+    // if we can't open a connection to the data store, we gotta call it quits
+    console.log(`FATAL ERROR: Unable to connect to data store: ${error}`);
+    process.kill(process.pid, "SIGTERM")
+  });
 
 // define our API routes
 
