@@ -1,3 +1,10 @@
+// import our Firebase Admin Config
+const firebaseAdminConfig = require("./firebase_admin_config.json");
+// import the Firebase Admin library
+const firebaseAdmin = require("firebase-admin");
+// initialize it
+firebaseAdmin.initializeApp(firebaseAdminConfig);
+
 // import our MongoStoreProvider
 const MongoStoreProvider = require("./MongoStoreProvider");
 
@@ -15,9 +22,9 @@ const MONGO_URL = "mongodb://localhost:27017";
 const MONGO_OPTIONS = { useUnifiedTopology: true };
 
 // create a new instance of our MongoStoreProvider
-const dal = new MongoStoreProvider(MONGO_URL, MONGO_OPTIONS);
+const dataLayer = new MongoStoreProvider(MONGO_URL, MONGO_OPTIONS);
 // open connection
-dal.open()
+dataLayer.open()
   .catch(error => {
     // if we can't open a connection to the data store, we gotta call it quits
     console.log(`FATAL ERROR: Unable to connect to data store: ${error}`);
@@ -29,7 +36,7 @@ dal.open()
 // API route to create a new account
 app.get("/account/create/:name/:email/:password", (req, res) => {
   const { name, email, password } = req.params;
-  dal.createAccount(name, email, password).then((result) => {
+  dataLayer.createAccount(name, email, password).then((result) => {
     res.send(result);
   },
   (err) => {
@@ -49,7 +56,7 @@ app.get("/account/login/:email/:password", (req, res) => {
 // API route to retrieve all accounts
 app.get("/account/all", (req, res) => {
   // ask our data layer for all accounts
-  dal.getAllAccounts().then((result) => {
+  dataLayer.getAllAccounts().then((result) => {
     res.send(result);
   },
   (err) => {
@@ -63,4 +70,4 @@ app.listen(PORT, () => {
 });
 
 // register a callback to close the data store provider before exit
-process.on("exit", () => dal.close());
+process.on("exit", () => dataLayer.close());
