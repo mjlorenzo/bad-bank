@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bad-bank-e726c",
+  "private_key_id": "c26a40c645b82ce5dea33911593d3d018c22c57e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDtPZkZI+naufM+\nFUkyT1Deh5aQMzsCtYoOLY6CKw6zt4SZpwW1o38cK/vjfFvBQ70kzWCuvARIFfkq\nHzbO+r7VSuXsFsGAppQcpvsfuU0XUOg6fGkBgbA2TKOWFDssNFS4rkJ6AnTpfJDc\n60TTJlz9hgPmBuhZX7zudAs141Yx80c9Pp5CePqh4J91hySFJb9OdE3sQ4lJcAK9\naiIla4WwNW6/69oyx+iUhOS2lv3XISTs520DgmPtCDpDp4fCvq2n9d112TK19H3e\nMpD5V3dN2v2k0bbqouwxA4ODqbQWRfQXLl+99smL2gZNyWqG9kEwQcramMHfnviq\nSuhD5upNAgMBAAECggEAcB7lhTEo63toTxYGQuWjZZgU+0+K+wvLFEpJiJFK4HrC\nC1AZba+4ehr7b5atUphuAr+hitNG/r6LxHF+GLH+kJVWNo7GosOXSjdMhcCwg210\nY3e6tMCTBAaSZXJoSMruo12QA1O350U8vXvfSh9eYV795q+rDdomU1e6mJw5d18G\ngUX4G3O2Z+ZX7Dfz1sXl09eZ9hlhuJlQU0fhxMrPRtIGeXkz/Sxbb0D5QiuzS34n\nno/Jjvp63v3tRPVVsQLFYQ8rKJ7YUL7Fv0wHP2V4B+jNeMJNWnqbPIFP2GiOyISY\nXV0ndgC2WClqzkHXKAu40dtWp1hO/dz+auKhoUPDTQKBgQD3mca+bEP/SlJq+zi7\nmp93Wm4/0WQrW3hfTOppmnccBBiFlBnumID0E+B0QBCt5ufT62Y2H/QTYkglX87t\n83Kw8y7v9Ri8wfs3hDGKebqwR3YDmmxNLk6g22hK4VzPqHUqRZbJWFMJcInIe98W\nezugzOkDnVVEO1D+y8sDEbaTCwKBgQD1Sdoz+157nSSPUyvaL4AV3izN5QWBG09u\nxK3Mny7uJqjUvluGXdjS3bjstqe5kRyeVojPJ0w11UFMbvyfrNwjbAvmSgLMXIlu\n920SmoSn5zPk+eAxTWBwNG7svqFetoFkqRaLGvpkbe9bOOMNLBBQSN0TfS3h8pfh\nuBLwNunPBwKBgB6+36kBtKfcyMM0EuVo2+hsOEiAbdncb+QVnv4iCixWbd0YeOfh\n1BF67mJBGlEd3Se5kWWjLiHCEIdjkESH+HP0np15Z+r4g4NvTN+PIhmFpifoYw5q\nc6UR2a+CsI2ws2veXE0ARL9lVBarGxalks/y4fRq8w2X+ATLtZfZ+TvlAoGAYU+7\nUYQYJ9Jf/rxwWU8e8Y4DGGwTkvTSvo8opFVCuRh9QmmCxfvVWVK9WqvcPrJjOC38\neLKOeYzxKvGdJ3vcmfDzh5k1Iv5TR8LBcu/6UOJYpC690tFvwRQMLcAzJPAixVyP\npQA+9jjnDLm02jTxA+jkTCcNXOZxewsb+FDQ0WECgYEA87W/h5aGxSUENvVxi3BO\nF/Uizqi0qNgKk8QvZqTJFV+YleS1F5gRqF8T989Evfrjd/lE2o3VysMEXMH50aQ4\nYECXA2cE2hEeUWrkZw27pPhCNuHaDP0KtEIdx4dhaOVBxU7ylG6YkhqXH5VUJiuB\n7eAfQJijSnzWdmbyr1vV3uI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-m9o3b@bad-bank-e726c.iam.gserviceaccount.com",
+  "client_id": "110860281798485249289",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-m9o3b%40bad-bank-e726c.iam.gserviceaccount.com"
+}
